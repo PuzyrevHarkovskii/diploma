@@ -17,7 +17,7 @@ function App() {
   const submitCode = () => {
     axios
     .post('http://localhost:80/python', {code}) // Решена проблема с адресом
-    .then((res) => console.log(res))
+    .then(({ data }) => console.log(data))
   };
 
   
