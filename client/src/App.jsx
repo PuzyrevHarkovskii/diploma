@@ -11,12 +11,17 @@ import { useState } from 'react';
 
 function App() {
 
+  const submitCode = () => {
+    console.log(code);
+  };
+
   const [code, setCode] = useState('a = 0');
 
   return (
     <div className='App'>
       <header className='App-header'>
       <div className='absolute top-20 bottom-40 left-10 right-10 text-left'>
+      <div>Создайте функцию которая складывает два числа в python</div>
         <CodeMirror
         value={code}
         theme={dracula}
@@ -29,9 +34,9 @@ function App() {
         }}
         onChange={(editor, change) => {
           setCode(editor); //Ошибка с getValue()
-          console.log(code);
         }}
         />
+        <div className='border-2 bg-green-500' onClick={submitCode}>Submit</div>
         </div>
       </header>
     </div>
