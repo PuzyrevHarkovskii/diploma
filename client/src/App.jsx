@@ -1,4 +1,5 @@
 import './App.css';
+import axios from "axios"
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 import "@uiw/codemirror-theme-dracula"
@@ -11,11 +12,15 @@ import { useState } from 'react';
 
 function App() {
 
+  const [code, setCode] = useState('a = 0');
+
   const submitCode = () => {
-    console.log(code);
+    axios
+    .post('http:/localhost:80/python', {code})
+    .then((res) => console.log(res))
   };
 
-  const [code, setCode] = useState('a = 0');
+  
 
   return (
     <div className='App'>
