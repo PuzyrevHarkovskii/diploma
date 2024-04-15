@@ -16,16 +16,16 @@ app.post('/python', (req, res) => {
     fs.writeFileSync('test.py', req.body.code);
 
     let options = {
-        mode: 'text',
-        pythonOptions: ['-u'], // get print results in real-time
-        args: [1, 2, 3]
-      };
-      
-      PythonShell.run('test.py', options, function (err, results) {
-        if (err) throw err;
-        // results is an array consisting of messages collected during execution
-        console.log('results: %j', results);
-      });
+      mode: 'text',
+      pythonOptions: ['-u'], // get print results in real-time
+      args: [1, 2, 3]
+    };
+    
+    PythonShell.run('test.py', options, function (err, results) {
+      if (err) throw err;
+      // results is an array consisting of messages collected during execution
+      console.log('results: %j', results);
+    });
 
     res.json({message: "success" });
 });
